@@ -58,9 +58,18 @@ docker run -it \
   -v $(pwd):/app \
   --name linux-monitor-container \
   ubuntu:22.04 \
- bash
+ bash```
 
-This:
-Starts an Ubuntu container
-Mounts your project folder inside /app
-Opens interactive shell
+#This:
+#Starts an Ubuntu container
+#Mounts your project folder inside /app
+#Opens interactive shell
+
+#Step 2: Install Required Packages
+Inside the container:
+apt update
+apt install -y curl cron
+
+#Step 3: Run Monitoring Script
+cd /app
+./scripts/disk_monitor.sh
